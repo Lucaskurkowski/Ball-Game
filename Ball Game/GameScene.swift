@@ -23,7 +23,7 @@ class GameScene: SKScene {
     //Cannon Code
     
     func CreateCannon() {
-        Cannon.position = CGPoint(x: 0, y: 200)
+        Cannon.position = CGPoint(x: 0, y: -590)
         Cannon.size.width = 150
         Cannon.size.height = 150
         
