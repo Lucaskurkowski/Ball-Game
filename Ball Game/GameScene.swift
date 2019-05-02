@@ -5,11 +5,15 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-   // var Cannon = SKSpriteNode.self
+    var Cannon = SKSpriteNode(imageNamed: "Slingshot")
     
     override func didMove(to view: SKView) {
         
-    
+        
+        
+        
+        
+    CreateCannon()
     }
 
   
@@ -18,15 +22,25 @@ class GameScene: SKScene {
     
     //Cannon Code
     
-    func CannonShoot() {
+    func CreateCannon() {
+        Cannon.position = CGPoint(x: 0, y: 200)
+        Cannon.size.width = 150
+        Cannon.size.height = 150
         
         
+        addChild(Cannon)
     }
 
     func CannonMove()  {
         
     }
-
+    
+    
+    func CannonShoot() {
+        
+        
+    
+    }
 
 
 
