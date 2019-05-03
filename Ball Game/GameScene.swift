@@ -5,7 +5,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var Cannon = SKSpriteNode(imageNamed: "Slingshot")
+var Cannon = SKSpriteNode(imageNamed: "Slingshot")
     
     override func didMove(to view: SKView) {
         
