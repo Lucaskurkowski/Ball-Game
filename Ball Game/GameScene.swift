@@ -35,9 +35,7 @@ class GameScene: SKScene {
         
     }
     
-    
     func CannonShoot() {
-        
         
     
     }
