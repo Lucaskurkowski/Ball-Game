@@ -23,7 +23,7 @@ class GameScene: SKScene {
     //Cannon Code
     
     func CreateCannon() {
-        Cannon.position = CGPoint(x: 0, y: -590)
+        Cannon.position = CGPoint(x: 0, y: -565)
         Cannon.size.width = 150
         Cannon.size.height = 150
         
@@ -39,8 +39,14 @@ class GameScene: SKScene {
         
     
     }
+    
+    override func  touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {return}
+       
+        let toucheslocation = touch.location(in: self)
 
 
+}
 
 
 }
