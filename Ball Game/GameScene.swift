@@ -33,11 +33,13 @@ class GameScene: SKScene {
 
     func CannonMove()  {
         
+        
     }
     
     func CannonShoot() {
         
     
+        
     }
     
     
