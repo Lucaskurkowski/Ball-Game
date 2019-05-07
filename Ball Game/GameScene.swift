@@ -10,14 +10,14 @@ var ball = SKSpriteNode(imageNamed: "Ball")
 var marble = SKSpriteNode(imageNamed: "Marble")
     override func didMove(to view: SKView) {
         
-        
+      
     
         var border = SKPhysicsBody(edgeLoopFrom: self.frame)
         
         
     CreateCannon()
     }
-
+    
   
     
     
@@ -41,7 +41,11 @@ var marble = SKSpriteNode(imageNamed: "Marble")
         
     
     }
-    
+    func CreateBalls() {
+      let Balls = SKSpriteNode(imageNamed: "Marble")
+        
+        
+    }
     
     
     
@@ -54,6 +58,32 @@ var marble = SKSpriteNode(imageNamed: "Marble")
 
 
 }
+
+    
+    
+    func RandomPoint() -> CGPoint {
+        
+   let xpos = Int.random(in: 0...Int(self.size.width))
+   let ypos = Int.random(in: 0...Int(self.size.width))
+        
+        return CGPoint(x: xpos, y: ypos)
+    }
+
+    func RandomNumber() -> CGFloat {
+        
+        let Number = CGFloat.random(in: 0...300)
+        
+        return Number
+    }
+
+
+
+
+
+
+
+
+
 
 
 }
