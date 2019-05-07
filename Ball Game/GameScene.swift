@@ -34,12 +34,14 @@ var marble = SKSpriteNode(imageNamed: "Marble")
     }
 
     func CannonMove()  {
-       
+        
+        
     }
     
     func CannonShoot() {
         
     
+        
     }
     func CreateBalls() {
       let Balls = SKSpriteNode(imageNamed: "Marble")
