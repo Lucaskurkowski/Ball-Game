@@ -20,6 +20,9 @@ var marble = SKSpriteNode(imageNamed: "Marble")
         
     
         var border = SKPhysicsBody(edgeLoopFrom: self.frame)
+        border.friction = 0
+        border.restitution = 1
+        self.physicsBody = border
         
     addMonster()
     CreateCannon()
@@ -96,6 +99,32 @@ let Balls = SKSpriteNode(imageNamed: "Ball")
 
 }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        for touch in touches{
+            
+            let location = touch.location(in: self)
+            Cannon.run(SKAction.moveTo(x: location.x, duration: 0.3))
+        }
+        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        for touch in touches{
+            
+            let location = touch.location(in: self)
+            Cannon.run(SKAction.moveTo(x: location.x, duration: 0.3))
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
    
