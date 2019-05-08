@@ -10,18 +10,22 @@ var ball = SKSpriteNode(imageNamed: "Ball")
 var marble = SKSpriteNode(imageNamed: "Marble")
     override func didMove(to view: SKView) {
         
-      
+        
+        run(SKAction.repeatForever(
+            SKAction.sequence([
+                SKAction.run(addMonster),
+                SKAction.wait(forDuration: 0.5)
+                ])
+        ))
+        
     
         var border = SKPhysicsBody(edgeLoopFrom: self.frame)
         
-        
+    addMonster()
     CreateCannon()
     }
     
   
-    
-    
-    
     //Cannon Code
     
     func CreateCannon() {
@@ -41,15 +45,46 @@ var marble = SKSpriteNode(imageNamed: "Marble")
     func CannonShoot() {
         
     
-        
-    }
-    func CreateBalls() {
-      let Balls = SKSpriteNode(imageNamed: "Marble")
-        
-        
     }
     
+    func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
     
+    func Random(min: CGFloat, max: CGFloat) -> CGFloat {
+        return random() * (max - min) + min
+    }
+    
+    func addMonster() {
+   
+        // Create sprite
+let Balls = SKSpriteNode(imageNamed: "Ball")
+        
+        Balls.size.width = 150
+        Balls.size.height = 150
+        
+        
+        
+        
+        // Determine where to spawn the monster along the Y axis
+        let actualX = Random(min: Balls.size.width/6 * -100, max: size.width - Balls.size.width/12)
+        
+        // Position the monster slightly off-screen along the right edge,
+        // and along a random position along the Y axis as calculated above
+       Balls.position = CGPoint(x: actualX, y: size.width + Balls.size.width)
+        
+        // Add the monster to the scene
+        addChild(Balls)
+        
+        // Determine speed of the monster
+        let actualDuration = Random(min: CGFloat(2.0), max: CGFloat(4.0))
+        
+        // Create the actions
+        let actionMove = SKAction.move(to: CGPoint(x: actualX, y: -Balls.size.width),
+                                       duration: TimeInterval(actualDuration))
+        let actionMoveDone = SKAction.removeFromParent()
+        Balls.run(SKAction.sequence([actionMove, actionMoveDone]))
+    }
     
     
     
@@ -63,20 +98,7 @@ var marble = SKSpriteNode(imageNamed: "Marble")
 
     
     
-    func RandomPoint() -> CGPoint {
-        
-   let xpos = Int.random(in: 0...Int(self.size.width))
-   let ypos = Int.random(in: 0...Int(self.size.width))
-        
-        return CGPoint(x: xpos, y: ypos)
-    }
-
-    func RandomNumber() -> CGFloat {
-        
-        let Number = CGFloat.random(in: 0...300)
-        
-        return Number
-    }
+   
 
 
 
