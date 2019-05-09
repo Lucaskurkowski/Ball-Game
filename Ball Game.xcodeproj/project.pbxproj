@@ -15,6 +15,7 @@
 		14ED54D3227B5F8B00BC9E5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ED54D1227B5F8B00BC9E5A /* Main.storyboard */; };
 		14ED54D5227B5F8C00BC9E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ED54D4227B5F8C00BC9E5A /* Assets.xcassets */; };
 		14ED54D8227B5F8D00BC9E5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ED54D6227B5F8D00BC9E5A /* LaunchScreen.storyboard */; };
+		8D8384AF22849FB300C5E992 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8384AE22849FB300C5E992 /* Math.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		14ED54D4227B5F8C00BC9E5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14ED54D7227B5F8D00BC9E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14ED54D9227B5F8D00BC9E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D8384AE22849FB300C5E992 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				14ED54C9227B5F8B00BC9E5A /* GameScene.sks */,
 				14ED54CB227B5F8B00BC9E5A /* Actions.sks */,
 				14ED54CD227B5F8B00BC9E5A /* GameScene.swift */,
+				8D8384AE22849FB300C5E992 /* Math.swift */,
 				14ED54CF227B5F8B00BC9E5A /* GameViewController.swift */,
 				14ED54D1227B5F8B00BC9E5A /* Main.storyboard */,
 				14ED54D4227B5F8C00BC9E5A /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 				14ED54CE227B5F8B00BC9E5A /* GameScene.swift in Sources */,
 				14ED54D0227B5F8B00BC9E5A /* GameViewController.swift in Sources */,
 				14ED54C8227B5F8B00BC9E5A /* AppDelegate.swift in Sources */,
+				8D8384AF22849FB300C5E992 /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
