@@ -3,13 +3,15 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene,SKPhysicsContactDelegate{
 
 var Cannon = SKSpriteNode(imageNamed: "Cannon")
 var ball = SKSpriteNode(imageNamed: "Ball")
 var marble = SKSpriteNode(imageNamed: "Marble")
     override func didMove(to view: SKView) {
         
+        physicsWorld.gravity = CGVector.zero
+        physicsWorld.contactDelegate = self
         
         run(SKAction.repeatForever(
             SKAction.sequence([
@@ -19,7 +21,7 @@ var marble = SKSpriteNode(imageNamed: "Marble")
         ))
         
     
-        var border = SKPhysicsBody(edgeLoopFrom: self.frame)
+        let border = SKPhysicsBody(edgeLoopFrom: self.frame)
         border.friction = 0
         border.restitution = 1
         self.physicsBody = border
@@ -30,6 +32,7 @@ var marble = SKSpriteNode(imageNamed: "Marble")
     
   
     //Cannon Code
+
     
     func CreateCannon() {
         Cannon.position = CGPoint(x: 0, y: -565)
@@ -40,14 +43,13 @@ var marble = SKSpriteNode(imageNamed: "Marble")
         addChild(Cannon)
     }
 
-    func CannonMove()  {
-        
-        
-    }
+   
     
-    func CannonShoot() {
-        
-    
+    struct PhysicsCategory {
+        static let None     :UInt32 = 1
+        static let All      :UInt32 = UInt32.max
+        static let Monster  :UInt32 = 2
+        static let Projectile :UInt32 = 4
     }
     
     func random() -> CGFloat {
@@ -89,14 +91,26 @@ let Balls = SKSpriteNode(imageNamed: "Ball")
         Balls.run(SKAction.sequence([actionMove, actionMoveDone]))
     }
     
-    
-    
     override func  touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {return}
-       
         let toucheslocation = touch.location(in: self)
-
-
+        let marble = SKSpriteNode(imageNamed: "Marble")
+        marble.position = Cannon.position
+        let offset = toucheslocation - marble.position
+        marble.physicsBody?.isDynamic = true
+        marble.physicsBody?.categoryBitMask = PhysicsCategory.Monster
+        marble.physicsBody?.contactTestBitMask = PhysicsCategory.Projectile
+        marble.physicsBody?.collisionBitMask = PhysicsCategory.None
+        marble.physicsBody?.usesPreciseCollisionDetection = true
+        marble.physicsBody = SKPhysicsBody(rectangleOf: marble.size)
+        addChild(marble)
+        let direct = offset.normalized()
+        let shootAmount = direct * 1000
+        let realDest = shootAmount + marble.position
+        let actionMove = SKAction.move(to: realDest, duration: TimeInterval(2.0))
+        let actionmovedone = SKAction.removeFromParent()
+        marble.run(SKAction.sequence([actionMove,actionmovedone]))
+        
 }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -118,28 +132,12 @@ let Balls = SKSpriteNode(imageNamed: "Ball")
         }
     
     
-    //hey chris
+  
     
     
    
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-
-
-
-
-
 
 
 
