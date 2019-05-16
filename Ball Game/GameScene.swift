@@ -7,7 +7,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate{
 
 var Cannon = SKSpriteNode(imageNamed: "Cannon")
 var ball = SKSpriteNode(imageNamed: "Ball")
-var marble = SKSpriteNode(imageNamed: "Marble")
+var marble = SKSpriteNode(imageNamed: "Blue Marble")
     override func didMove(to view: SKView) {
         
         physicsWorld.gravity = CGVector.zero
@@ -65,9 +65,10 @@ var marble = SKSpriteNode(imageNamed: "Marble")
         // Create sprite
 let Balls = SKSpriteNode(imageNamed: "Ball")
         
-        Balls.size.width = 150
-        Balls.size.height = 150
+        Balls.size.width = 90
+        Balls.size.height = 90
         
+       
         
         
         
@@ -94,8 +95,10 @@ let Balls = SKSpriteNode(imageNamed: "Ball")
     override func  touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {return}
         let toucheslocation = touch.location(in: self)
-        let marble = SKSpriteNode(imageNamed: "Marble")
+        let marble = SKSpriteNode(imageNamed: "Blue Marble")
         marble.position = Cannon.position
+        marble.size.width = 90
+        marble.size.height = 90
         let offset = toucheslocation - marble.position
         marble.physicsBody?.isDynamic = true
         marble.physicsBody?.categoryBitMask = PhysicsCategory.Monster
