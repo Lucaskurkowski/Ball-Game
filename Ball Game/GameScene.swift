@@ -8,7 +8,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate{
 var Cannon = SKSpriteNode(imageNamed: "Cannon")
 var ball = SKSpriteNode(imageNamed: "Ball")
 var marble = SKSpriteNode(imageNamed: "Blue Marble")
+var background = SKSpriteNode(imageNamed: "Background")
+    
     override func didMove(to view: SKView) {
+        
+     
         
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
@@ -73,7 +77,7 @@ let Balls = SKSpriteNode(imageNamed: "Ball")
         
         
         // Determine where to spawn the monster along the Y axis
-        let actualX = Random(min: Balls.size.width/6 * -100, max: size.width - Balls.size.width/12)
+        let actualX = Random(min: Balls.size.width/6 * -100, max: size.width - Balls.size.width)
         
         // Position the monster slightly off-screen along the right edge,
         // and along a random position along the Y axis as calculated above
@@ -99,6 +103,7 @@ let Balls = SKSpriteNode(imageNamed: "Ball")
         marble.position = Cannon.position
         marble.size.width = 90
         marble.size.height = 90
+        
         let offset = toucheslocation - marble.position
         marble.physicsBody?.isDynamic = true
         marble.physicsBody?.categoryBitMask = PhysicsCategory.Monster
@@ -142,6 +147,16 @@ let Balls = SKSpriteNode(imageNamed: "Ball")
         
     }
 
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+
+    }
+    
+    
+    
+    
+    
+    
 
 
 
